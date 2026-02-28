@@ -1,0 +1,83 @@
+---
+import { IconDarkTheme, IconLightTheme, IconTheme } from "@/icons/theme";
+---
+
+<div class="btn-selector">
+  <span class="btn-selector-icon"><IconTheme /></span>
+
+  <div class="btn-selector-dropdown">
+    <div class="btn-selector-dropdown__items">
+      <a class="btn-selector-dropdown__item">
+        <span class="btn-selector-icon"><IconLightTheme /></span>
+        Light
+      </a>
+
+      <a class="btn-selector-dropdown__item">
+        <span class="btn-selector-icon"><IconDarkTheme /></span>
+        Dark
+      </a>
+    </div>
+  </div>
+</div>
+
+<style>
+  .btn-selector {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 12px;
+    border: 1px solid #ced4da;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .btn-selector:hover {
+    background-color: #f2f4f3;
+  }
+
+  .btn-selector-icon {
+    display: flex;
+    width: 20px;
+    fill: #253237;
+  }
+
+  .btn-selector-dropdown {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 100%;
+    right: 100%;
+  }
+
+  .btn-selector-dropdown__items {
+    background-color: var(--color-bg-white);
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 4px 1px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+  }
+
+  .btn-selector-dropdown__item {
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 8px;
+    border-radius: 4px;
+  }
+
+  .btn-selector-dropdown__item:hover {
+    background-color: #f2f4f3;
+  }
+</style>
