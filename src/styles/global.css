@@ -11,7 +11,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 100dvh;
   overflow: hidden;
   font-family: var(--font-google-sans);
   color: #253237;
