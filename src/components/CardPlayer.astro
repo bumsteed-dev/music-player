@@ -1,14 +1,9 @@
 ---
-import {
-  IconHeart,
-  IconPause,
-  IconPlay,
-  IconPlayRewind,
-  IconShuffle,
-  IconPlayNext,
-} from "@/icons";
-
 import "../styles/global.css";
+import PlayerCover from "./PlayerCover.astro";
+import PlayerMeta from "./PlayerMeta.astro";
+import PlayerProgress from "./PlayerProgress.astro";
+import PlayerControls from "./PlayerControls.astro";
 
 const track = {
   title: "Do I Wanna Know?",
@@ -23,100 +18,24 @@ const track = {
 
 <main class="player-page">
   <section class="player-card" aria-label="Music player">
-    <!-- Cover -->
-    <div class="player-cover">
-      <img
-        class="player-cover__img"
-        src={track.cover}
-        alt={`Cover - ${track.title} by ${track.artist}`}
-      />
-    </div>
-
-    <!-- Song info row (left icon - center text - right icon) -->
-    <div class="player-meta">
-      <button
-        class="player-meta__btn player-meta__btn--left"
-        type="button"
-        aria-label="Shuffle"
-      >
-        <IconShuffle />
-      </button>
-
-      <div class="player-meta__text">
-        <h2 class="player-meta__title">{track.title}</h2>
-        <p class="player-meta__artist">{track.artist}</p>
-      </div>
-
-      <button
-        class="player-meta__btn player-meta__btn--right"
-        type="button"
-        aria-label={track.liked ? "Unlike" : "Like"}
-      >
-        <IconHeart />
-      </button>
-    </div>
-
-    <!-- Progress -->
-    <div class="player-progress">
-      <label class="player-progress__bar" aria-label="Seek">
-        <input
-          class="player-progress__range"
-          type="range"
-          min="0"
-          max="200"
-          value="20"
-        />
-      </label>
-
-      <div class="player-progress__times">
-        <span class="player-progress__time player-progress__time--current"
-          >{track.currentTime}</span
-        >
-        <span class="player-progress__time player-progress__time--duration"
-          >{track.duration}</span
-        >
-      </div>
-    </div>
-
-    <!-- Controls -->
-    <div class="player-controls" aria-label="Playback controls">
-      <button class="player-controls__btn" type="button" aria-label="Previous">
-        <IconPlayRewind />
-      </button>
-
-      <button
-        class="player-controls__btn player-controls__btn--primary"
-        type="button"
-        aria-label="Play/Pause"
-      >
-        {track.isPlaying ? <IconPause /> : <IconPlay />}
-      </button>
-
-      <button class="player-controls__btn" type="button" aria-label="Next">
-        <IconPlayNext />
-        <iconPlayNext></iconPlayNext>
-      </button>
-    </div>
-
-    <!-- Optional: “handle” inferior (como la barrita pequeña) -->
+    <PlayerCover src={track.cover} title={track.title} artist={track.artist} />
+    <PlayerMeta title={track.title} artist={track.artist} liked={track.liked} />
+    <PlayerProgress currentTime={track.currentTime} duration={track.duration} />
+    <PlayerControls isPlaying={track.isPlaying} />
     <div class="player-grip" aria-hidden="true"></div>
   </section>
 </main>
 
-<style is:global>
-  .icon {
-    width: 22px;
-    height: 22px;
-  }
-
+<style>
   .player-page {
     background-color: var(--color-bg-main);
     border: 1px solid #ced4da;
-    width: 400px;
+    max-width: 400px;
     border-radius: 15px;
     box-shadow: 1px 1px 11px 0px rgba(37, 50, 55, 0.1);
     -webkit-box-shadow: 1px 1px 11px 0px rgba(37, 50, 55, 0.1);
     -moz-box-shadow: 1px 1px 11px 0px rgba(37, 50, 55, 0.1);
+    margin: 10px;
   }
 
   .player-card {
@@ -128,79 +47,9 @@ const track = {
     gap: 20px;
   }
 
-  .player-cover__img {
-    width: 100%;
-    border-radius: 10px;
-  }
-
-  .player-meta {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    gap: 5px;
-  }
-
-  .player-meta__btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 0.1px solid #ced4da;
-  }
-
-  .player-meta__btn > svg {
-    width: 25px;
-    height: 25px;
-  }
-
-  .player-meta__text {
-    text-align: center;
-  }
-
-  .player-meta__title {
-    font-size: 20px;
-  }
-
-  .player-progress {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .player-progress__range {
-    width: 100%;
-  }
-
-  .player-progress__times {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .player-controls {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-  }
-
-  .player-controls__btn--primary {
-    background-color: #3397ea;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-  }
-
-  .player-controls__btn--primary > svg {
-    color: #fff;
-  }
-
-  .icon-heart {
-    color: #e63946;
+  @media screen and (min-width: 768px) {
+    .player-page {
+      margin: 0 auto;
+    }
   }
 </style>

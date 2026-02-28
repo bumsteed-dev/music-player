@@ -1,0 +1,49 @@
+---
+import { IconPause, IconPlay, IconPlayRewind, IconPlayNext } from "@/icons";
+
+interface Props {
+  isPlaying: boolean;
+}
+
+const { isPlaying } = Astro.props;
+---
+
+<div class="player-controls" aria-label="Playback controls">
+  <button class="player-controls__btn" type="button" aria-label="Previous">
+    <IconPlayRewind />
+  </button>
+
+  <button
+    class="player-controls__btn player-controls__btn--primary"
+    type="button"
+    aria-label="Play/Pause"
+  >
+    {isPlaying ? <IconPause /> : <IconPlay />}
+  </button>
+
+  <button class="player-controls__btn" type="button" aria-label="Next">
+    <IconPlayNext />
+  </button>
+</div>
+
+<style>
+  .player-controls {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+  }
+
+  .player-controls__btn--primary {
+    background-color: #3397ea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  .player-controls__btn--primary > svg {
+    color: #fff;
+  }
+</style>

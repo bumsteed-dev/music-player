@@ -1,0 +1,71 @@
+---
+import { IconHeart, IconShuffle } from "@/icons";
+
+interface Props {
+  title: string;
+  artist: string;
+  liked: boolean;
+}
+
+const { title, artist, liked } = Astro.props;
+---
+
+<div class="player-meta">
+  <button
+    class="player-meta__btn player-meta__btn--left"
+    type="button"
+    aria-label="Shuffle"
+  >
+    <IconShuffle />
+  </button>
+
+  <div class="player-meta__text">
+    <h2 class="player-meta__title">{title}</h2>
+    <p class="player-meta__artist">{artist}</p>
+  </div>
+
+  <button
+    class="player-meta__btn player-meta__btn--right"
+    type="button"
+    aria-label={liked ? "Unlike" : "Like"}
+  >
+    <IconHeart />
+  </button>
+</div>
+
+<style>
+  .player-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 5px;
+  }
+
+  .player-meta__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 0.1px solid #ced4da;
+  }
+
+  .player-meta__btn > svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  .player-meta__text {
+    text-align: center;
+  }
+
+  .player-meta__title {
+    font-size: 20px;
+  }
+
+  .icon-heart {
+    color: #e63946;
+  }
+</style>

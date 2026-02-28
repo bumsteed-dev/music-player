@@ -1,0 +1,47 @@
+---
+interface Props {
+  currentTime: string;
+  duration: string;
+}
+
+const { currentTime, duration } = Astro.props;
+---
+
+<div class="player-progress">
+  <label class="player-progress__bar" aria-label="Seek">
+    <input
+      class="player-progress__range"
+      type="range"
+      min="0"
+      max="200"
+      value="20"
+    />
+  </label>
+
+  <div class="player-progress__times">
+    <span class="player-progress__time player-progress__time--current">
+      {currentTime}
+    </span>
+    <span class="player-progress__time player-progress__time--duration">
+      {duration}
+    </span>
+  </div>
+</div>
+
+<style>
+  .player-progress {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .player-progress__range {
+    width: 100%;
+  }
+
+  .player-progress__times {
+    display: flex;
+    justify-content: space-between;
+  }
+</style>
