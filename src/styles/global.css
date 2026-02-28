@@ -12,6 +12,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  overflow: hidden;
   font-family: var(--font-google-sans);
   color: #253237;
 }
@@ -19,4 +20,9 @@ body {
 button {
   all: unset;
   cursor: pointer;
+}
+
+.icon {
+  width: 22px;
+  height: 22px;
 }
