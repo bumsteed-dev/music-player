@@ -1,0 +1,22 @@
+@import "./variables.css";
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-bg-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: var(--font-google-sans);
+  color: #253237;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
