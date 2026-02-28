@@ -35,6 +35,7 @@ const { isPlaying } = Astro.props;
 
   .player-controls__btn--primary {
     background-color: #3397ea;
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,7 +44,8 @@ const { isPlaying } = Astro.props;
     border-radius: 50%;
   }
 
-  .player-controls__btn--primary > svg {
-    color: #fff;
+  .player-controls__btn--primary :global(svg) {
+    width: 30px;
+    height: 30px;
   }
 </style>
