@@ -29,7 +29,7 @@ import { IconDarkTheme, IconLightTheme, IconTheme } from "@/icons/theme";
     align-items: center;
     gap: 4px;
     padding: 6px 12px;
-    border: 1px solid #ced4da;
+    border: 0.5px solid #ced4da;
     position: absolute;
     top: 10px;
     right: 10px;
@@ -39,6 +39,13 @@ import { IconDarkTheme, IconLightTheme, IconTheme } from "@/icons/theme";
 
   .btn-selector:hover {
     background-color: #f2f4f3;
+  }
+
+  .btn-selector:hover .btn-selector-dropdown__items {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0px);
+    visibility: visible;
   }
 
   .btn-selector-icon {
@@ -52,19 +59,28 @@ import { IconDarkTheme, IconLightTheme, IconTheme } from "@/icons/theme";
     display: flex;
     flex-direction: column;
     top: 100%;
-    right: 100%;
+    right: 0%;
+    pointer-events: none;
+  }
+
+  .btn-selector:hover .btn-selector-dropdown {
+    pointer-events: auto;
   }
 
   .btn-selector-dropdown__items {
     background-color: var(--color-bg-white);
-    width: 100px;
+    width: 120px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     padding: 4px 1px;
-    border: 1px solid #ced4da;
+    border: 0.5px solid #ced4da;
     border-radius: 4px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    visibility: hidden;
   }
 
   .btn-selector-dropdown__item {
