@@ -5,6 +5,8 @@ import PlayerMeta from "./PlayerMeta.astro";
 import PlayerProgress from "./PlayerProgress.astro";
 import PlayerControls from "./PlayerControls.astro";
 
+import ThemeSelector from "./ThemeSelector.astro";
+
 const track = {
   title: "Do I Wanna Know?",
   artist: "Arctic Monkeys",
@@ -17,6 +19,9 @@ const track = {
 ---
 
 <main class="player-page">
+  <section class="theme-selector">
+    <ThemeSelector />
+  </section>
   <section class="player-card" aria-label="Music player">
     <PlayerCover src={track.cover} title={track.title} artist={track.artist} />
     <PlayerMeta title={track.title} artist={track.artist} liked={track.liked} />
