@@ -29,7 +29,7 @@ import { IconDarkTheme, IconLightTheme, IconTheme } from "@/icons/theme";
     align-items: center;
     gap: 4px;
     padding: 6px 12px;
-    border: 0.5px solid #ced4da;
+    border: 0.5px solid var(--color-border);
     position: absolute;
     top: 10px;
     right: 10px;
@@ -38,7 +38,7 @@ import { IconDarkTheme, IconLightTheme, IconTheme } from "@/icons/theme";
   }
 
   .btn-selector:hover {
-    background-color: #f2f4f3;
+    background-color: var(--color-bg-hover);
   }
 
   .btn-selector:hover .btn-selector-dropdown__items {
@@ -51,7 +51,7 @@ import { IconDarkTheme, IconLightTheme, IconTheme } from "@/icons/theme";
   .btn-selector-icon {
     display: flex;
     width: 20px;
-    fill: #253237;
+    fill: var(--color-text);
   }
 
   .btn-selector-dropdown {
@@ -68,14 +68,14 @@ import { IconDarkTheme, IconLightTheme, IconTheme } from "@/icons/theme";
   }
 
   .btn-selector-dropdown__items {
-    background-color: var(--color-bg-white);
+    background-color: var(--color-bg);
     width: 120px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     padding: 4px 1px;
-    border: 0.5px solid #ced4da;
+    border: 0.5px solid var(--color-border);
     border-radius: 4px;
     opacity: 0;
     pointer-events: none;
@@ -94,6 +94,6 @@ import { IconDarkTheme, IconLightTheme, IconTheme } from "@/icons/theme";
   }
 
   .btn-selector-dropdown__item:hover {
-    background-color: #f2f4f3;
+    background-color: var(--color-bg-hover);
   }
 </style>

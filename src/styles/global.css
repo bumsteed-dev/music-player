@@ -7,14 +7,14 @@
 }
 
 body {
-  background-color: var(--color-bg-white);
+  background-color: var(--color-bg);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100dvh;
   overflow: hidden;
   font-family: var(--font-google-sans);
-  color: #253237;
+  color: var(--color-text);
   position: relative;
 }
 
@@ -29,5 +29,5 @@ button {
 }
 
 .icon-heart {
-  color: #e63946
+  color: var(--color-accent)
 }
