@@ -5,8 +5,6 @@ import PlayerMeta from "./PlayerMeta.astro";
 import PlayerProgress from "./PlayerProgress.astro";
 import PlayerControls from "./PlayerControls.astro";
 
-import ThemeSelector from "./ThemeSelector.astro";
-
 const track = {
   title: "Do I Wanna Know?",
   artist: "Arctic Monkeys",
@@ -19,17 +17,19 @@ const track = {
 ---
 
 <main class="player-page">
-  <section class="theme-selector">
-    <ThemeSelector />
-  </section>
   <section class="player-card" aria-label="Music player">
     <PlayerCover src={track.cover} title={track.title} artist={track.artist} />
     <PlayerMeta title={track.title} artist={track.artist} liked={track.liked} />
     <PlayerProgress currentTime={track.currentTime} duration={track.duration} />
     <PlayerControls isPlaying={track.isPlaying} />
+    <audio class="song">
+      <source src="/songs/Tough - NEFFEX.mp3" type="audio/mpeg" />
+    </audio>
     <div class="player-grip" aria-hidden="true"></div>
   </section>
 </main>
+
+<script is:inline src="/js/app.js"></script>
 
 <style>
   .player-page {
